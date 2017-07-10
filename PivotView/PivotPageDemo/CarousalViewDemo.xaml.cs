@@ -44,11 +44,11 @@ namespace PivotPageDemo
 
         public CarousalViewModel()
         {
-            Items = new List<CarouselItem>();
+            Items = new List<CarousalItem>();
         }
         public void LoadData()
         {
-            List<CarousalItem> imgs = new List<CarouselItem>()
+            List<CarousalItem> imgs = new List<CarousalItem>()
         {
             new CarousalItem{ Img="banner1.png" },
 

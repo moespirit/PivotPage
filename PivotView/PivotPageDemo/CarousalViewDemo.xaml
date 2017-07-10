@@ -15,8 +15,8 @@
                 <DataTemplate>
                     <local:CustomImage Source="{Binding Img}" Aspect="AspectFit" BackgroundColor="Red"/>
                 </DataTemplate>
-            </protable:CarousalView.ItemTemplate>
-        </protable:CarousalView>
+            </protable:CarouselView.ItemTemplate>
+        </protable:CarouselView>
         <Button BackgroundColor="Black" Grid.Row="1" Text="我是按钮" Clicked="Button_Clicked"></Button>
     </Grid>
 </ContentPage>

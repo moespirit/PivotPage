@@ -111,7 +111,7 @@ namespace PivotView.Droid
             if (Platform.GetRenderer(view) == null)
                 Platform.SetRenderer(view, Platform.CreateRenderer(view));
             var renderer = Platform.GetRenderer(view);
-            var viewGroup = renderer.ViewGroup;
+            var viewGroup = renderer.View;
             viewPager.AddView(viewGroup);
             return viewGroup;
         }

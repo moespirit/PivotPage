@@ -2,7 +2,8 @@
 <pages:PivotPage  Title="Mokey" 
                   xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                  xmlns:pages="clr-namespace:PivotPageDemo"
+                  xmlns:pages="clr-namespace:PivotPagePortable;assembly=PivotPagePortable"
+                  xmlns:local="clr-namespace:PivotPageDemo"
                     x:Class="PivotPageDemo.PivotXamlPage"
                   Headers="{Binding Headers,Mode=OneWay}"
                   Views="{Binding Views,Mode=OneWay}"
@@ -43,6 +44,6 @@
         </DataTemplate>
     </pages:PivotPage.SelectedDataTemplate>
     <pages:PivotPage.BindingContext>
-        <pages:PivotViewMdoel></pages:PivotViewMdoel>
+        <local:PivotViewMdoel></local:PivotViewMdoel>
     </pages:PivotPage.BindingContext>
 </pages:PivotPage>
