@@ -90,7 +90,7 @@ namespace PivotView.Droid
         public CustomPagerAdapter(Context context, ViewPanel customViewPage)
         {
             _customViewPage = customViewPage;
-            _views = customViewPage.Children;
+            _views = customViewPage.PanelChildren;
             _context = context;
         }
         public override int Count

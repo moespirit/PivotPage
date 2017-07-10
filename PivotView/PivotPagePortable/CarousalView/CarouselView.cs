@@ -22,7 +22,7 @@ namespace PivotPagePortable
         {
             if (realIndex == this.CurrentIndex)
                 return;
-            if ((int)e.SelectedPosition == this.Children.Count - 1)
+            if ((int)e.SelectedPosition == this.PanelChildren.Count - 1)
             {
                 Select(1, false);
                 realIndex = 1;
@@ -30,8 +30,8 @@ namespace PivotPagePortable
             }
             else if ((int)e.SelectedPosition == 0)
             {
-                Select(this.Children.Count - 2, false);
-                realIndex = this.Children.Count - 2;
+                Select(this.PanelChildren.Count - 2, false);
+                realIndex = this.PanelChildren.Count - 2;
                 SelectedIndex = realIndex - 1;
             }
             else
@@ -58,7 +58,7 @@ namespace PivotPagePortable
             var cv = sender as CarouselView;
             var items = newValue as IList;
 
-            cv.isPlaying = false;
+            //cv.isPlaying = false;
 
             if (items == null || items.Count <= 0)
             {
@@ -83,11 +83,11 @@ namespace PivotPagePortable
             view.BindingContext = items[0];
             views.Add(view);
 
-            if (cv.Children != null)
+            if (cv.PanelChildren != null)
             {
-                cv.Children.Clear();
+                cv.PanelChildren.Clear();
             }
-            cv.Children = views;
+            cv.PanelChildren = views;
 
 
             cv.InvalidateLayout();
@@ -104,8 +104,8 @@ namespace PivotPagePortable
         {
             if (this.ItemsSource == null || this.ItemsSource.Count <= 2)
                 return;
-            realIndex = (realIndex + 1) % (this.Children.Count);
-            if (realIndex == this.Children.Count - 1)
+            realIndex = (realIndex + 1) % (this.PanelChildren.Count);
+            if (realIndex == this.PanelChildren.Count - 1)
             {
                 Select(realIndex, true);
                 await Task.Delay(500);
@@ -128,14 +128,14 @@ namespace PivotPagePortable
 
             realIndex = (realIndex - 1);
             if (realIndex < 0)
-                realIndex = this.Children.Count - 1;
+                realIndex = this.PanelChildren.Count - 1;
 
             if (realIndex == 0)
             {
                 Select(realIndex, true);
                 await Task.Delay(500);
-                Select(this.Children.Count - 1, false);
-                realIndex = this.Children.Count - 1;
+                Select(this.PanelChildren.Count - 1, false);
+                realIndex = this.PanelChildren.Count - 1;
 
                 SelectedIndex = this.ItemsSource.Count - 1;
             }
@@ -160,7 +160,7 @@ namespace PivotPagePortable
             }
         });
 
-        bool isPlaying = false;
+        //bool isPlaying = false;
         void InnerPlay()
         {
             Task.Delay(Duration).ContinueWith(async t =>

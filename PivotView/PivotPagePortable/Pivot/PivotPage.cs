@@ -121,7 +121,7 @@ namespace PivotPagePortable
         static void OnViewsPropertyChnaged(BindableObject sender, object oldValue, object newValue)
         {
             var pivot = sender as PivotPage;
-            pivot._viewPanel.Children = (IList)newValue;
+            pivot._viewPanel.PanelChildren = (IList)newValue;
         }
     }
 }

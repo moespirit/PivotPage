@@ -49,7 +49,7 @@ namespace PivotPageDemo
 
             LoadData();
         }
-        public async void LoadData()
+        public void LoadData()
         {
             Headers.Add(new PivotItemModel { Title = "Mokey" });
             Views.Add(new MokeyView());

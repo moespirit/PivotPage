@@ -31,7 +31,7 @@ namespace PivotPagePortable
         /// 支持数据绑定的Child View集合
         /// </summary>
         public static readonly BindableProperty ChildrenProperty = BindableProperty.Create("Children", typeof(IList), typeof(ViewPanel), propertyChanged: OnChildrenChanged);
-        public IList Children
+        public IList PanelChildren
         {
             get { return (IList)this.GetValue(ChildrenProperty); }
             set { SetValue(ChildrenProperty, value); }
@@ -45,12 +45,12 @@ namespace PivotPagePortable
         /// <param name="newValue"></param>
         static void OnChildrenChanged(BindableObject sender, Object oldValue, Object newValue)
         {
-            if (Device.OS == TargetPlatform.iOS)
+            if (Device.RuntimePlatform == Device.iOS)
             {
                 var viewPanel = sender as ViewPanel;
                 var stackLayout = viewPanel.Content as StackLayout;
                 stackLayout.Children.Clear();
-                foreach (View item in viewPanel.Children)
+                foreach (View item in viewPanel.PanelChildren)
                 {
                     stackLayout.Children.Add(item);
                 }
@@ -59,7 +59,7 @@ namespace PivotPagePortable
 
         protected override SizeRequest OnMeasure(double widthConstraint, double heightConstraint)
         {
-            if (Device.OS == TargetPlatform.iOS)
+            if (Device.RuntimePlatform == Device.iOS)
             {
                 MeasureWidth = widthConstraint;
                 return _horizentalLayout.Measure(widthConstraint, heightConstraint);
@@ -67,10 +67,10 @@ namespace PivotPagePortable
             else
             {
                 double maxHeight = 0;
-                if (this.Children != null)
+                if (this.PanelChildren != null)
                 {
 
-                    foreach (View item in Children)
+                    foreach (View item in PanelChildren)
                     {
                         var size = item.Measure(widthConstraint, heightConstraint);
                         if (size.Request.Height > maxHeight)
@@ -86,18 +86,18 @@ namespace PivotPagePortable
         protected override void LayoutChildren(double x, double y, double width, double height)
         {
             MeasureWidth = width;
-            if (Device.OS == TargetPlatform.iOS)
+            if (Device.RuntimePlatform == Device.iOS)
             {
                 base.LayoutChildren(x, y, width, height);
             }
 
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
             {
-                if (this.Children == null)
+                if (this.PanelChildren == null)
                 {
                     return;
                 }
-                foreach (View item in Children)
+                foreach (View item in PanelChildren)
                 {
                     item.Layout(new Rectangle(0, 0, width, height));
                 }
