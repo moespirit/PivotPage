@@ -15,7 +15,7 @@ namespace PivotPageDemo
         public string Title { get; set; }
         public Lazy<View> View { get; set; }
     }
-    public class PivotViewMdoel:INotifyPropertyChanged
+    public class PivotViewModel:INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string propertyName = null)
@@ -42,7 +42,7 @@ namespace PivotPageDemo
             set { _views = value; OnPropertyChanged(); }
         }
 
-        public PivotViewMdoel()
+        public PivotViewModel()
         {
             Views = new ObservableCollection<View>();
             Headers = new ObservableCollection<PivotItemModel>();

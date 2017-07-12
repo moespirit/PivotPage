@@ -64,7 +64,7 @@
     <Compile Include="PivotPageTestVIew3.xaml.cs">
       <DependentUpon>PivotPageTestVIew3.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PivotViewMdoel.cs" />
+    <Compile Include="PivotViewModel.cs" />
     <Compile Include="PivotXamlPage.xaml.cs">
       <DependentUpon>PivotXamlPage.xaml</DependentUpon>
     </Compile>
