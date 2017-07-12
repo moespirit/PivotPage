@@ -1,7 +1,5 @@
 ﻿using CoreGraphics;
-using PivotPagePortable;
-using PivotView;
-using PivotView.iOS;
+using Yinyue200.Controls.PivotPage;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(ViewPanel), typeof(ViewPanelRenderer))]
-namespace PivotView.iOS
+namespace Yinyue200.Controls.PivotPage
 {
     public class ViewPanelRenderer : ScrollViewRenderer
     {

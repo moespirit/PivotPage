@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace PivotPagePortable
+namespace Yinyue200.Controls.PivotPage
 {
     public class ScrollViewExpand:ScrollView
     {

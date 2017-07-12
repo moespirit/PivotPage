@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace PivotPagePortable
+namespace Yinyue200.Controls.PivotPage
 {
     /// <summary>
     /// 用于显示多个试图的容器

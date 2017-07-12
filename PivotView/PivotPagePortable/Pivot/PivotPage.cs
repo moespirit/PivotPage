@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace PivotPagePortable
+namespace Yinyue200.Controls.PivotPage
 {
     /// <summary>
     /// 多页面切换控件，页面类型为Xamarin.Forms.View

@@ -1,6 +1,4 @@
-﻿using PivotPagePortable;
-using PivotView;
-using PivotView.iOS;
+﻿using Yinyue200.Controls.PivotPage;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +6,7 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 [assembly: ExportRenderer(typeof(ScrollViewExpand), typeof(ScrollViewExpandRenderer))]
-namespace PivotView.iOS
+namespace Yinyue200.Controls.PivotPage
 {
     public class ScrollViewExpandRenderer : ScrollViewRenderer
     {

@@ -8,7 +8,7 @@
     <ProjectGuid>{1D713C10-7EAB-4F33-B85D-F151A2C907EF}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PivotView.iOS</RootNamespace>
+    <RootNamespace>Yinyue200.Xamarin.Controls.PivotPage</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>PivotView.iOS</AssemblyName>
     <NuGetPackageImportStamp>
@@ -103,8 +103,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Renderer\ScrollViewExpandRenderer.cs" />
-    <Compile Include="Renderer\ViewPanelRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />

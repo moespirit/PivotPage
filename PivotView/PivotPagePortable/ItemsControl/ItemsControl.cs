@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using Xamarin.Forms;
 using System.Linq;
 
-namespace PivotPagePortable
+namespace Yinyue200.Controls.PivotPage
 {
     public class ItemsControl : ContentView
     {

@@ -11,16 +11,15 @@ using Android.Views;
 using Android.Widget;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-using PivotView.Droid;
 using static Android.Views.View;
 using Android.Support.V4.View;
 using Java.Lang;
 using System.Collections;
 using Xamarin.Forms.PlatformConfiguration.WindowsSpecific;
-using PivotPagePortable;
+using Yinyue200.Controls.PivotPage;
 
 [assembly: ExportRenderer(typeof(ViewPanel), typeof(ViewPanelRenderer))]
-namespace PivotView.Droid
+namespace Yinyue200.Controls.PivotPage
 {
     public class ViewPanelRenderer : ViewRenderer<ViewPanel, ViewPager>
     {
@@ -86,7 +85,7 @@ namespace PivotView.Droid
     {
         private ViewPanel _customViewPage;
         private Context _context;
-        private IList _views = new List<Xamarin.Forms.View>();
+        private IList _views = new List<  Xamarin.Forms.View>();
         public CustomPagerAdapter(Context context, ViewPanel customViewPage)
         {
             _customViewPage = customViewPage;
