@@ -30,10 +30,10 @@ namespace Yinyue200.Controls.PivotPage
         /// <summary>
         /// 支持数据绑定的Child View集合
         /// </summary>
-        public static readonly BindableProperty ChildrenProperty = BindableProperty.Create("Children", typeof(IList), typeof(ViewPanel), propertyChanged: OnChildrenChanged);
-        public IList PanelChildren
+        public static readonly BindableProperty ChildrenProperty = BindableProperty.Create(nameof(PanelChildren), typeof(IEnumerable<View>), typeof(ViewPanel), propertyChanged: OnChildrenChanged);
+        public IEnumerable<View> PanelChildren
         {
-            get { return (IList)this.GetValue(ChildrenProperty); }
+            get { return (IEnumerable<View>)this.GetValue(ChildrenProperty); }
             set { SetValue(ChildrenProperty, value); }
         }
         /// <summary>
@@ -50,7 +50,7 @@ namespace Yinyue200.Controls.PivotPage
                 var viewPanel = sender as ViewPanel;
                 var stackLayout = viewPanel.Content as StackLayout;
                 stackLayout.Children.Clear();
-                foreach (View item in viewPanel.PanelChildren)
+                foreach (var item in viewPanel.PanelChildren)
                 {
                     stackLayout.Children.Add(item);
                 }

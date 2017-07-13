@@ -70,28 +70,41 @@ namespace Yinyue200.Controls.PivotPage
             _viewPanel.Select?.Invoke(index, animation);
 
         }
-
+        public static readonly BindableProperty SelectedDataTemplateProperty = BindableProperty.Create(nameof(SelectedDataTemplate), typeof(DataTemplate), typeof(PivotPage), propertyChanged: OnSelectedDataTemplatePropertyChnaged);
         /// <summary>
         /// Header中选中项的DataTemplate
         /// </summary>
         public DataTemplate SelectedDataTemplate
         {
-            get { return _headerList.SelectedItemTemplate; }
-            set { _headerList.SelectedItemTemplate = value; }
+            get { return (DataTemplate)GetValue(SelectedDataTemplateProperty); }
+            set { SetValue(SelectedDataTemplateProperty,value); }
         }
+        static void OnSelectedDataTemplatePropertyChnaged(BindableObject sender, object oldValue, object newValue)
+        {
+            PivotPage page = (PivotPage)sender;
+            page._headerList.SelectedItemTemplate = (DataTemplate)newValue;
+        }
+
+
+        public static readonly BindableProperty NormalDataTemplateProperty = BindableProperty.Create(nameof(NormalDataTemplate), typeof(DataTemplate), typeof(PivotPage), propertyChanged: OnNormalDataTemplatePropertyChnaged);
         /// <summary>
         /// Header中未选中项的DataTemplate
         /// </summary>
-        public DataTemplate NornamlDataTemplate
+        public DataTemplate NormalDataTemplate
         {
-            get { return _headerList.ItemTemplate; }
-            set { _headerList.ItemTemplate = value; }
+            get { return (DataTemplate)GetValue(NormalDataTemplateProperty); }
+            set { SetValue(NormalDataTemplateProperty, value); }
+        }
+        static void OnNormalDataTemplatePropertyChnaged(BindableObject sender, object oldValue, object newValue)
+        {
+            PivotPage page = (PivotPage)sender;
+            page._headerList.ItemTemplate = (DataTemplate)newValue;
         }
 
         /// <summary>
         /// PivotPage的第一组成部分Header
         /// </summary>
-        public static readonly BindableProperty HeadersProperty = BindableProperty.Create("Headers", typeof(IEnumerable), typeof(PivotPage), null, propertyChanged: OnHeadersPropertyChnaged);
+        public static readonly BindableProperty HeadersProperty = BindableProperty.Create(nameof(Headers), typeof(IEnumerable), typeof(PivotPage), null, propertyChanged: OnHeadersPropertyChnaged);
         public IEnumerable Headers
         {
             get { return (IEnumerable)this.GetValue(HeadersProperty); }
@@ -101,7 +114,7 @@ namespace Yinyue200.Controls.PivotPage
         static void OnHeadersPropertyChnaged(BindableObject sender, object oldValue, object newValue)
         {
             var pivot = sender as PivotPage;
-            if (pivot.SelectedDataTemplate == null || pivot.NornamlDataTemplate == null)
+            if (pivot.SelectedDataTemplate == null || pivot.NormalDataTemplate == null)
             {
                 return;
             }
@@ -112,16 +125,16 @@ namespace Yinyue200.Controls.PivotPage
         /// PivotPage第二组成部分Views
         /// </summary>
         public static readonly BindableProperty ViewsProperty = BindableProperty.Create("Views", typeof(IEnumerable), typeof(PivotPage), null, propertyChanged: OnViewsPropertyChnaged);
-        public IEnumerable Views
+        public IEnumerable<View> Views
         {
-            get { return (IEnumerable)this.GetValue(ViewsProperty); }
+            get { return (IEnumerable<View>)this.GetValue(ViewsProperty); }
             set { SetValue(ViewsProperty, value); }
         }
 
         static void OnViewsPropertyChnaged(BindableObject sender, object oldValue, object newValue)
         {
             var pivot = sender as PivotPage;
-            pivot._viewPanel.PanelChildren = (IList)newValue;
+            pivot._viewPanel.PanelChildren = (IEnumerable<View>)newValue;
         }
     }
 }
