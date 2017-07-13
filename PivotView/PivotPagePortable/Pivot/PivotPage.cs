@@ -46,6 +46,16 @@ namespace Yinyue200.Controls.PivotPage
             _viewPanel.SelectChanged += _viewPanel_SelectChanged;
         }
 
+        public event EventHandler<SelectedPositionChangedEventArgs> MainViewChanged;
+
+        public int MainViewIndex
+        {
+            get
+            {
+                return _viewPanel.CurrentIndex;
+            }
+        }
+
         private void _viewPanel_SelectChanged(object sender, SelectedPositionChangedEventArgs e)
         {
             var index = (int)e.SelectedPosition;
@@ -54,6 +64,8 @@ namespace Yinyue200.Controls.PivotPage
             {
                 _headerList.SelectedIndex = index;
             }
+
+            MainViewChanged?.Invoke(this, new SelectedPositionChangedEventArgs(MainViewIndex));
         }
 
         private void headerList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -124,17 +136,17 @@ namespace Yinyue200.Controls.PivotPage
         /// <summary>
         /// PivotPage第二组成部分Views
         /// </summary>
-        public static readonly BindableProperty ViewsProperty = BindableProperty.Create("Views", typeof(IEnumerable), typeof(PivotPage), null, propertyChanged: OnViewsPropertyChnaged);
-        public IEnumerable<View> Views
+        public static readonly BindableProperty ViewsProperty = BindableProperty.Create(nameof(Views), typeof(IList<View>), typeof(PivotPage), null, propertyChanged: OnViewsPropertyChnaged);
+        public IList<View> Views
         {
-            get { return (IEnumerable<View>)this.GetValue(ViewsProperty); }
+            get { return (IList<View>)this.GetValue(ViewsProperty); }
             set { SetValue(ViewsProperty, value); }
         }
 
         static void OnViewsPropertyChnaged(BindableObject sender, object oldValue, object newValue)
         {
             var pivot = sender as PivotPage;
-            pivot._viewPanel.PanelChildren = (IEnumerable<View>)newValue;
+            pivot._viewPanel.PanelChildren = (IList<View>)newValue;
         }
     }
 }

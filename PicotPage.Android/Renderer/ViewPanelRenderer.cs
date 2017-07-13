@@ -85,7 +85,7 @@ namespace Yinyue200.Controls.PivotPage
     {
         private ViewPanel _customViewPage;
         private Context _context;
-        private IList _views = new List<  Xamarin.Forms.View>();
+        private IList<Xamarin.Forms.View> _views = new List<Xamarin.Forms.View>();
         public CustomPagerAdapter(Context context, ViewPanel customViewPage)
         {
             _customViewPage = customViewPage;

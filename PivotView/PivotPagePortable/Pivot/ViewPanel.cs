@@ -30,10 +30,10 @@ namespace Yinyue200.Controls.PivotPage
         /// <summary>
         /// 支持数据绑定的Child View集合
         /// </summary>
-        public static readonly BindableProperty ChildrenProperty = BindableProperty.Create(nameof(PanelChildren), typeof(IEnumerable<View>), typeof(ViewPanel), propertyChanged: OnChildrenChanged);
-        public IEnumerable<View> PanelChildren
+        public static readonly BindableProperty ChildrenProperty = BindableProperty.Create(nameof(PanelChildren), typeof(IList<View>), typeof(ViewPanel), propertyChanged: OnChildrenChanged);
+        public IList<View> PanelChildren
         {
-            get { return (IEnumerable<View>)this.GetValue(ChildrenProperty); }
+            get { return (IList<View>)this.GetValue(ChildrenProperty); }
             set { SetValue(ChildrenProperty, value); }
         }
         /// <summary>
@@ -105,7 +105,7 @@ namespace Yinyue200.Controls.PivotPage
         }
 
         public event EventHandler<SelectedPositionChangedEventArgs> SelectChanged;
-        public static readonly BindableProperty CurrentIndexProperty = BindableProperty.Create("CurrentIndex", typeof(int), typeof(ViewPanel), 0);
+        public static readonly BindableProperty CurrentIndexProperty = BindableProperty.Create(nameof(CurrentIndex), typeof(int), typeof(ViewPanel), 0);
         public int CurrentIndex
         {
             get { return (int)this.GetValue(CurrentIndexProperty); }
