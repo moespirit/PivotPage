@@ -136,7 +136,7 @@ namespace Yinyue200.Controls.PivotPage
         /// <summary>
         /// PivotPage第二组成部分Views
         /// </summary>
-        public static readonly BindableProperty ViewsProperty = BindableProperty.Create(nameof(Views), typeof(IList<View>), typeof(PivotPage), null, propertyChanged: OnViewsPropertyChnaged);
+        public static readonly BindableProperty ViewsProperty = BindableProperty.Create(nameof(Views), typeof(IList<View>), typeof(PivotPage), new List<View>(), propertyChanged: OnViewsPropertyChnaged);
         public IList<View> Views
         {
             get { return (IList<View>)this.GetValue(ViewsProperty); }
