@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pivot:PivotPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PivotPageNewDemo.MainPage"
+            xmlns:pivot="clr-namespace:Yinyue200.Controls.PivotPage;assembly=Yinyue200.Xamarin.Controls.PivotPage.PivotPagePortable"
+                 Style="{DynamicResource Key=desty}">
+
+    <pivot:PivotPage.Views>
+        <ContentView BackgroundColor="Red">
+            
+        </ContentView>
+        <ContentView BackgroundColor="Gray">
+            
+        </ContentView>
+    </pivot:PivotPage.Views>
+
+</pivot:PivotPage>

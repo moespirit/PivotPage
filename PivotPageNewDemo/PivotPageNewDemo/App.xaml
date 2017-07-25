@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pivot="clr-namespace:Yinyue200.Controls.PivotPage;assembly=Yinyue200.Xamarin.Controls.PivotPage.PivotPagePortable"
+             x:Class="PivotPageNewDemo.App">
+	<Application.Resources>
+
+		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <Style x:Key="desty"  TargetType="pivot:PivotPage">
+                <Setter Property="Padding">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.iOS>
+                            0, 20, 0, 0
+                        </OnPlatform.iOS>
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="NormalDataTemplate">
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Text="{Binding}" TextColor="Gray"  VerticalOptions="Center"></Label>
+                                <BoxView Grid.Row="1" HeightRequest="2" BackgroundColor="Gray"></BoxView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </Setter>
+                <Setter Property="SelectedDataTemplate">
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Text="{Binding}" TextColor="Red"  VerticalOptions="Center"></Label>
+                                <BoxView Grid.Row="1" HeightRequest="2" BackgroundColor="Red"></BoxView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+	</Application.Resources>
+</Application>
