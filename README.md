@@ -65,7 +65,7 @@ PivotPage是一个多页面切换控件，类似安卓中的ViewPager和UWP中�
 
 ###
 目前实现的版本
-* iOS:利用Xamarin.Fomrs中SrollView+StackLayout实现ViewPanel
+* iOS:利用Xamarin.Forms中ScrollView+StackLayout实现ViewPanel
 * Android:直接使用ViewPager实现ViewPanel
 
 ![Demo](https://github.com/cjw1115/PivotPage/blob/master/PivotView/PivotPageDemo/DemoAssets/demo.png)
